@@ -7,6 +7,8 @@ import io.restassured.http.ContentType;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.restassured.AllureRestAssured;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
@@ -22,6 +24,7 @@ public class PostsTests {
     @Description("Verify GET /posts returns list of posts")
     public void testGetAllPosts() {
         given()
+                .filter(new AllureRestAssured())
                 .when()
                 .get("/posts")
                 .then()
@@ -38,6 +41,7 @@ public class PostsTests {
     @Description("Verify GET /posts/{id} returns specific post")
     public void testGetPostById() {
         given()
+                .filter(new AllureRestAssured())
                 .pathParam("id", 1)
                 .when()
                 .get("/posts/{id}")
@@ -54,6 +58,7 @@ public class PostsTests {
     @Description("Verify GET /posts/{id} with invalid ID returns 404")
     public void testGetPostInvalidId() {
         given()
+                .filter(new AllureRestAssured())
                 .pathParam("id", 999)
                 .when()
                 .get("/posts/{id}")
@@ -67,6 +72,7 @@ public class PostsTests {
         String requestBody = "{\"userId\": 1, \"title\": \"test title\", \"body\": \"test body\"}";
 
         given()
+                .filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
@@ -85,6 +91,7 @@ public class PostsTests {
         String requestBody = "{\"id\": 1, \"userId\": 1, \"title\": \"updated title\", \"body\": \"updated body\"}";
 
         given()
+                .filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .pathParam("id", 1)
@@ -102,6 +109,7 @@ public class PostsTests {
     @Description("Verify DELETE /posts/{id} deletes a post")
     public void testDeletePost() {
         given()
+                .filter(new AllureRestAssured())
                 .pathParam("id", 1)
                 .when()
                 .delete("/posts/{id}")
