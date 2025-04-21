@@ -9,7 +9,8 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write  # For gh-pages push
     steps:
       # Checkout code
       - name: Checkout code
@@ -28,12 +29,12 @@ jobs:
         with:
           path: ~/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle-
 
       # Run tests
       - name: Run Tests
         run: ./gradlew clean test
 
-      # Generate Allure report
       - name: Generate Allure Report
         run: ./gradlew allureReport
 
@@ -42,16 +43,16 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: build/allure-results/
+          path: build/allure-report/
+          if-no-files-found: error
+          retention-days: 7
 
       # Publish Allure report (optional)
       - name: Publish Allure Report
-        uses: simple-elf/allure-report-action@master
-        if: always()
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          allure_results: build/allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/allure-report
+          destination_dir: allure-report
+          keep_files: false  # Overwrite existing files
+        if: always()
