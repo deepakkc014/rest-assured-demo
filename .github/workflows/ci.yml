@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: build/allure-report/
+          path: build/allure-results/
 
       # Publish Allure report (optional)
       - name: Publish Allure Report
