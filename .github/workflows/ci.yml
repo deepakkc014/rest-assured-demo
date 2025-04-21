@@ -39,10 +39,10 @@ jobs:
 
       # Upload Allure report
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: build/allure-report/
+          path: build/allure-results/
 
       # Publish Allure report (optional)
       - name: Publish Allure Report
