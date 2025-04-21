@@ -35,5 +35,4 @@ dependencies {
 
 tasks.test {
     useTestNG()
-    systemProperty("allure.results.directory", "build/allure-results")
 }
