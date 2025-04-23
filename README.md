@@ -4,15 +4,15 @@ A robust API testing framework built with **Rest Assured**, **TestNG**, and **Gr
 
 ## Table of Contents
 
-- Features
-- Prerequisites
-- Setup
-- Running Tests
-- Viewing Allure Reports
-- CI/CD Pipeline
-- Project Structure
-- Contributing
-- License
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Running Tests](#running-tests)
+- [Viewing Allure Reports](#viewing-allure-reports)
+- [CI/CD Pipeline](#cicd-pipeline)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
