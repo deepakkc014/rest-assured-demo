@@ -86,7 +86,7 @@ Allure reports are generated and published automatically via GitHub Actions.
 - **GitHub Pages**: Access the latest report at:
 
   ```
-  https://deepakkc014.github.io/rest-assured-demo/allure-report
+  https://deepakkc014.github.io/rest-assured-demo/<build-number>
   ```
 
 - **Artifacts**:
