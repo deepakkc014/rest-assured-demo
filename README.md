@@ -124,10 +124,10 @@ rest-assured-demo/
 ├── src
 │   ├── main
 │   │   └── java
-│   │       └── com/example/App.java
+│   │       └── qa/deepakkc014
 │   └── test
 │       └── java
-│           └── com/example/api
+│           └── qa/deepakkc014
 │               └── PostsTests.java
 ├── build.gradle
 ├── gradlew
